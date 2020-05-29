@@ -1,0 +1,12 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+    {% if tasko.user_id == current_user.id %}
+        <div>
+            <a href="{{ url_for('task.delete_task',task_id=tasko.id) }}">Delete</a>
+            <a href="{{ url_for('task.update_task',task_id=tasko.id) }}">Update</a>
+        </div>
+    {% endif %}
+    <h2 class="article-title">{{ tasko.title }}</h2>
+    <p class="article-content">{{ tasko.content }}</p>
+{% endblock content %}

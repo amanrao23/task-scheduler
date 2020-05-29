@@ -1,0 +1,25 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+    <a href="{{ url_for('main.index') }}">
+       <h1>Home</h1>
+    </a>
+
+    <a href="{{ url_for('auth.profile') }}">
+        <h1>Profile</h1>
+    </a>
+    {% if not current_user.is_authenticated %}
+    <a href="{{ url_for('auth.login') }}">
+        <h1>Login</h1>
+    </a>
+    <a href="{{ url_for('auth.signup') }}">
+        <h1>Sign Up</h1>
+    </a>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+    <a href="{{ url_for('auth.logout') }}">
+        <h1>Logout</h1>
+    </a>
+    {% endif %}
+
+{% endblock %}
